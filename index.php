@@ -1,33 +1,21 @@
 <?php
-echo "Strada";
+echo "Hello";
 
-$connection = new mysqli("localhost", "root", "", "sipols");
-$result = $connection->query("SELECT * FROM users");
-$data = $result->fetch_assoc();
-var_dump($data);
+require "function.php";
 
-echo "<pre>";
-var_dump($_SERVER);
-echo "</pre>";
+$dsn = "mysql:host=localhost;port=3306;user=root;password=;dbname=blog_ipb23;charset=utf8mb4";
 
+$pdo = new PDO($dsn);
 
+$statement = $pdo->prepare("SELECT * FROM posts");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+$statement->execute();
 
-$sql = "INSERT INTO users
-        (username, pass)
-        VALUES
-        ('$username', '$password');
-";
-$connection->query($sql);   
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+echo"<ul>";
+foreach($posts as $pos)
+{
+    echo "<li>" . $pos ["content"] . "</;i";
 }
-
-echo "<form method='POST'>";
-    echo " <label>Lietotājvārds: <input name='username' placeholder='Lietotajvārds' /><label/><br>";
-    echo "<label>Parole: <input type='password' name='password' placeholder='Parole'/><label/><br>";
-    echo "<input type='submit' value='Reģistrēties'/>";
-echo "</form>";
-
-
+echo"</ul>";

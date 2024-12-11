@@ -1,15 +1,17 @@
--- DROP DATABASE users;
--- CREATE DATABASE sipols;
--- USE sipols;
+DROP DATABASE IF EXISTS blog_ipb23;
+CREATE DATABASE  blog_ipb23;
 
--- CREATE TABLE users (
-	-- id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	-- username VARCHAR(12) NOT NULL,
-	-- pass VARCHAR(50) NOT NULL 
--- );
-
-CREATE TABLE stars (
-	id INT KEY NOT NULL AUTO_INCREMENT,
-	image VARCHAR(255) NOT NULL, 
-	user_id INT  NOT NULL 
+USE blog_ipb23;
+CREATE TABLE posts(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+content VARCHAR(5200)
 );
+
+INSERT INTO posts
+(content)
+VALUE
+("ziemassvētki nak"),
+("yolo"),
+("amen");
+
+SELECT * FROM posts; 
