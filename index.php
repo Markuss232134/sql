@@ -5,7 +5,7 @@ require "function.php";
 require "Database.php";
 
 $db = new Database();
-$posts = $db->query();
+$posts = $db->query("SELECT * FROM posts");
 
 echo"<ul>";
 foreach($posts as $pos)
