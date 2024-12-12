@@ -1,18 +1,23 @@
 <?php
 
 class Database {
-   public function query($sql){
-        // Data Source Name
-        $dsn = "mysql:host=localhost;port=3306;user=root;password=;dbname=blog_ipb23;charset=utf8mb4";
+   public $pdo;
+
+   // Konstruktors - izpieldas vienu reizi
+   public function __construct($config){
+      // Data Source Name
+        $dsn = "mysql:" .http_build_query($config, "", ";");
         // PHP Data Object 
-        $pdo = new PDO($dsn);
+        $this->pdo = new PDO($dsn);
+        $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+   }
+
+   public function query($sql){
+        
         // Sagatavo 1.
-        $statement = $pdo->prepare("$sql");
+        $statement = $this->pdo->prepare("$sql");
         // Sagatav0 2.
         $statement->execute();
-
-        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return $data;
+        return $statement;
    } 
 }
