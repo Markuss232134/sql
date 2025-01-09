@@ -12,12 +12,12 @@ class Database {
         $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
    }
 
-   public function query($sql){
+   public function query($sql, $c_ram){
         
         // Sagatavo 1.
-        $statement = $this->pdo->prepare("$sql");
+        $statement = $this->pdo->prepare($sql);
         // Sagatav0 2.
-        $statement->execute();
+        $statement->execute($c_ram);
         return $statement;
    } 
 }
