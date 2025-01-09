@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="stylesheet" href="css/style1.css">
-</head>
-<body>
-
+<?php require "components/header.php"; ?>
 <h1>Blogs</h1>
 
 
@@ -24,9 +15,5 @@
 <?php foreach($posts as $post){ ?>
     <li> <?= $post["content"] ?> </li>
 <?php } ?>
-
-</body>
-
-</html>
-
 </ul>
+<?php require "components/footer.php"; ?>
