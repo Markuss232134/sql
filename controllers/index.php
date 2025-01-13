@@ -1,9 +1,5 @@
 <?php
 
-
-$config = require("config.php");
-
-$db = new Database($config["database"]);
 $c_ram = [];
 $select = "SELECT * FROM posts";
 if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
