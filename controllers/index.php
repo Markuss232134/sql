@@ -1,16 +1,15 @@
 <?php
 
-$c_ram = [];
+
 $select = "SELECT * FROM posts";
-if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
-    echo "atgriest ierakstu";
-    $search_query = "%" . $_GET["search_query"] . "%";
+$params = [];
+if (isset($_GET['search']) && $_GET['search']!=""){
+    $search_query = "%". $_GET['search']. "%";
     $select .= " WHERE content LIKE :nosaukums";
-    $c_ram = ["nosaukums" => $search_query];
+    $params = ["nosaukums" => $search_query];
 }
-$posts = $db->query($select, $c_ram)->fetchAll();
 
-$pageTitle = "Blog";
-$style = "css/style1.css";
-
-require "views/index.view.php";
+    $posts = $db->query($select, $params)->fetchAll();
+    
+    $pageTitle = "Blogs";
+    require "views/index.view.php";

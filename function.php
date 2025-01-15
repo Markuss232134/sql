@@ -1,7 +1,8 @@
 <?php
-function dd($date){
-    echo"<pre>";
-    var_dump($date);
-    echo"<pre>";
+
+function dd($data){
+    echo "<pre>";
+    var_dump($data);
+    echo "</pre>";
     die();
 }

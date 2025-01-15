@@ -1,5 +1,6 @@
 <?php
-$title = "❤";
-$pageTitle = "Par Mums";
-$style = "css/style2.css";
-require "views/story.view.php"; 
+
+$title = "niks pliks";
+$pageTitle = "Story";
+
+require "views/story.view.php";

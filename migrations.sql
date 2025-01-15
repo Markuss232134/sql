@@ -1,17 +1,16 @@
-DROP DATABASE IF EXISTS blog_ipb23;
-CREATE DATABASE  blog_ipb23;
+CREATE DATABASE blog;
+USE blog;
 
-USE blog_ipb23;
-CREATE TABLE posts(
-id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-content VARCHAR(5200)
+CREATE TABLE posts (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	content VARCHAR(5200)
 );
 
-INSERT INTO posts
+INSERT INTO posts 
 (content)
-VALUE
-("ziemassvētki nak"),
-("yolo"),
-("amen");
+VALUES 
+("pirmias posts"),
+("otrais posts"),
+("tresais posts") ;
 
-SELECT * FROM posts; 
+SELECT * FROM posts;
